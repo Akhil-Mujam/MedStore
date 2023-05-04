@@ -35,7 +35,7 @@ const Upld = () => {
   return (
     <div>
    <div class="container">
-            <div class="row d-flex align-items-center">
+            <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-6">
                         <span>Title</span>
                         <input type="text" class="form-control" placeholder='enter the title' onChange={(e)=>{settitle(e.target.value)}}/>
@@ -47,7 +47,9 @@ const Upld = () => {
                 <div class="col-6">
                       {/* <button class="btn btn-outline-success justify-content-center" ><input  type="file"  onChange={(e)=>{setimage(e.target.files[0])}}/></button> */}
                       url<input type="url" onChange={(e)=>{setimage(e.target.value)}} />
+                  
 
+                      {/* image uploading using multer in this col */}
                       <form method="post" action='/imgupload' encType="multipart/form-data">
                         <input type="file" />
                         <input type="submit" name='image'/>

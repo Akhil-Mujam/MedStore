@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import axios from 'axios'
 import swal from 'sweetalert'
 import { useParams } from 'react-router-dom'
@@ -6,6 +6,8 @@ const Update = () => {
     const [image,setimage] =useState('')
     const [title,settitle] = useState('')
     const [notes,setnotes] = useState('')
+    const [stitle,oldtitle] = useState('')
+    const [snotes,oldnotes] = useState('')
     //const [id,setid] = useState('')
     let {id} = useParams();
      const submitHandler =(e) =>{
@@ -34,13 +36,26 @@ const Update = () => {
 
         )
      }
+
+     useEffect(()=>{
+           const url = "http://localhost:5000/view/"+id;
+
+           axios.get(url).then(
+            (res)=>{
+                console.log(res.data);
+                oldtitle(res.data.title);
+                oldnotes(res.data.notes);
+                
+            }
+           )
+     },[])
   return (
     <div>
       <div class="container">
             <div class="row d-flex align-items-center">
                 <div class="col-6">
                         <span>Title</span>
-                        <input type="text" class="form-control" placeholder='enter the title' onChange={(e)=>{settitle(e.target.value)}}/>
+                        <input type="text" class="form-control"  placeholder='enter the title' onChange={(e)=>{settitle(e.target.value)}}/>
                        <span>Notes</span><br/>
                         <textarea placeholder='enter the additional information' row="4" cols="50" onChange={(e)=>{setnotes(e.target.value)}} ></textarea>
                
