@@ -6,7 +6,7 @@ const Frontpage = () => {
   return (
     <div >
           
-          <div> 
+          <div > 
              
           <nav class="navbar bg-none m-0 p-0 ">
   <div class="container-fluid ">

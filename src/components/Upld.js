@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import swal from 'sweetalert'
 const Upld = () => {
@@ -14,6 +14,10 @@ const Upld = () => {
             Title:title,
             Notes:notes,
             img:image
+        },{
+          headers:{
+            'token':localStorage.getItem('token')
+          }
         }).then(
             (res)=>{
                 console.log(res.data)
@@ -30,7 +34,13 @@ const Upld = () => {
             }
         )
     }
+  
 
+     useEffect(()=>{
+      if(!localStorage.getItem('token'))
+        
+         window.location="/login";
+     },[])
     
   return (
     <div>

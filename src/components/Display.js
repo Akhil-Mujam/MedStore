@@ -3,8 +3,13 @@ import {React,useEffect,useState} from 'react'
 import { Link } from 'react-router-dom';
 import Nav from './Nav';
 const Display = () => {
-    
-    const [print,setPrint] = useState([]);
+  const idss = new Array();
+  const titles = new Array();
+  const notes = new Array();
+  const imgs = new Array();
+  const[print,setprint] =useState([])
+    const [arr,setarr]= useState('')
+    const [nb,setnb] = useState();
 
       const deleteHandler = (id,e) =>{
         e.preventDefault();
@@ -16,15 +21,34 @@ const Display = () => {
          )
       }
 
-    useEffect(() => {
-        axios.get('http://localhost:5000/data').then(
-          (res)=>{
+    
+    useEffect(()=>{
+            if(!localStorage.getItem('token'))
+            {
+              window.location='/login'
+            }
+            const tk = localStorage.getItem('token')
+            const url = "http://localhost:5000/get/"+tk;
+            axios.get(url).then(
+              (response)=>{
            
-                setPrint(res.data)
-                console.log(print);
-          }
-        )
-        },[])
+                console.log(response)
+                console.log(response.data[0]._id)
+                setarr(response.data);
+                setnb(response.data[0].length);
+                const df = response.data;
+                for(var i=0;i<df.length;i++)
+                {
+                    idss.push(response.data[i]._id);
+                    titles.push(response.data[i].Title);
+                    notes.push(response.data[i].Notes);
+                    imgs.push(response.data[i].img)
+                }
+              }
+            ).catch((err)=>{
+                 console.log(err)
+            })
+    },[])
   return (
     <div>
       <Nav/>

@@ -1,12 +1,12 @@
 import React from 'react'
-import Upld from './Upld'
-import Frontpage from './Frontpage'
-import Display from './Display'
-import Edit from './Edit'
-import Login from './Login'
-import Register from './Register'
-import Dashboard from './Dashboard'
-import Update from './Update'
+import Upld from './components/Upld'
+import Frontpage from './components/Frontpage'
+import Display from './components/Display'
+import Edit from './components/Edit'
+import Login from './components/Login'
+import Register from './components/Register'
+import Dashboard from './components/Dashboard'
+import Update from './components/Update'
 import {BrowserRouter,Routes,Route} from 'react-router-dom';
 
 const App = () => {
