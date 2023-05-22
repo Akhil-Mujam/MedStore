@@ -39,3 +39,7 @@
     background-position: center;
     background-size: 100%;
 } */
+
+.disabled{
+  color: #ebebe4;
+}

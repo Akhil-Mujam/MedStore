@@ -59,8 +59,10 @@ const Display = () => {
     <div>
       <Nav/>
       <div className="row">
-        <h1>images</h1>
-                {arr.map(data =>  
+          {
+            arr.length > 0 ? 
+        
+                arr.map(data =>  
                 <div className="col-md-4">
                     <div class="card" style={{"width": "18rem"}}>
                     <img class="card-img-top" src={data.img} alt="Card image cap" />
@@ -78,7 +80,15 @@ const Display = () => {
                     <br/>
                 </div>
                 
-                )}
+                )
+
+                :
+                <div > <center>
+                    <h3 class="text-center disabled" >
+                    No Files are uploaded still now
+                    </h3>
+                  </center> </div>
+              }
 
                 {/* {titles.map( data =>{
                     <h2>data</h2>

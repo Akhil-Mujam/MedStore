@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import swal from 'sweetalert'
 const Upld = () => {
+    const [userid,setuserid]= useState('')
     const [image,setimage] =useState('')
     const [title,settitle] = useState('')
     const [notes,setnotes] = useState('')
@@ -9,8 +10,10 @@ const Upld = () => {
         e.preventDefault();
         console.log(image);
         console.log(title)
-
+         
+       
         axios.post('http://localhost:5000/upload',{
+            userid:userid,
             Title:title,
             Notes:notes,
             img:image
@@ -40,6 +43,17 @@ const Upld = () => {
       if(!localStorage.getItem('token'))
         
          window.location="/login";
+
+         const tk= localStorage.getItem('token')
+         const endpoint = "http://localhost:5000/decode/"+tk;
+       axios.get(endpoint).then(
+         (res) =>{
+           setuserid(res.data._id)
+          // console.log(res.data._id)
+          console.log(userid);
+         }
+       )
+
      },[])
     
   return (
