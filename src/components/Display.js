@@ -7,8 +7,10 @@ const Display = () => {
   const titles = new Array();
   const notes = new Array();
   const imgs = new Array();
+  const array = new Array();
+
   const[print,setprint] =useState([])
-    const [arr,setarr]= useState('')
+    const [arr,setarr]= useState([])
     const [nb,setnb] = useState();
 
       const deleteHandler = (id,e) =>{
@@ -32,18 +34,22 @@ const Display = () => {
             axios.get(url).then(
               (response)=>{
            
-                console.log(response)
-                console.log(response.data[0]._id)
+                //console.log(response)
+                //console.log(response.data[0]._id)
                 setarr(response.data);
+                console.log(arr)
                 setnb(response.data[0].length);
-                const df = response.data;
-                for(var i=0;i<df.length;i++)
-                {
-                    idss.push(response.data[i]._id);
-                    titles.push(response.data[i].Title);
-                    notes.push(response.data[i].Notes);
-                    imgs.push(response.data[i].img)
-                }
+                //const df = response.data;
+                //for(var i=0;i<df.length;i++)
+               // {
+                    // idss.push(response.data[i]._id);
+                    // titles.push(response.data[i].Title);
+                    // console.log(titles)
+                    // notes.push(response.data[i].Notes);
+                    // imgs.push(response.data[i].img)
+                    //array.push(response.data[i])
+                    //console.log(array)
+                //}
               }
             ).catch((err)=>{
                  console.log(err)
@@ -53,7 +59,8 @@ const Display = () => {
     <div>
       <Nav/>
       <div className="row">
-                {print.map(data =>  
+        <h1>images</h1>
+                {arr.map(data =>  
                 <div className="col-md-4">
                     <div class="card" style={{"width": "18rem"}}>
                     <img class="card-img-top" src={data.img} alt="Card image cap" />
@@ -72,6 +79,10 @@ const Display = () => {
                 </div>
                 
                 )}
+
+                {/* {titles.map( data =>{
+                    <h2>data</h2>
+                })} */}
             </div>
     </div>
   )

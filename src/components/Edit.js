@@ -82,7 +82,7 @@ const Edit = () => {
                 <div class="col-6 my-4">
                       {/* <button class="btn btn-outline-success justify-content-center" ><input  type="file"  onChange={(e)=>{setimage(e.target.files[0])}}/></button> */}
                       {/* url<input type="url"  /> */}
-                      <img src={image} />
+                      <img src={image}  width="480px" height="480px"/>
                 </div>
 
                  <div class="justify-content-center">
