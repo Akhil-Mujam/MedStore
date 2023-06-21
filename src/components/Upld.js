@@ -58,11 +58,14 @@ const Upld = () => {
     
   return (
     <div>
-   <div class="container">
+      
+   <div class="container ">
             <div class="row d-flex align-items-center justify-content-center">
                 <div class="col-6">
+                    <br/><br/>
                         <span>Title</span>
                         <input type="text" class="form-control" placeholder='enter the title' onChange={(e)=>{settitle(e.target.value)}}/>
+                        <br/><br/>
                        <span>Notes</span><br/>
                         <textarea placeholder='enter the additional information' row="4" cols="50" onChange={(e)=>{setnotes(e.target.value)}} ></textarea>
                
@@ -70,19 +73,20 @@ const Upld = () => {
                 </div>
                 <div class="col-6">
                       {/* <button class="btn btn-outline-success justify-content-center" ><input  type="file"  onChange={(e)=>{setimage(e.target.files[0])}}/></button> */}
-                      url<input type="url" onChange={(e)=>{setimage(e.target.value)}} />
+                      <b>URL</b><input type="url" onChange={(e)=>{setimage(e.target.value)}} />
                   
-
+                    <br/><br/>
                       {/* image uploading using multer in this col */}
-                      <form method="post" action='/imgupload' encType="multipart/form-data">
+                      {/* <form method="post" action='/imgupload' encType="multipart/form-data">
                         <input type="file" />
                         <input type="submit" name='image'/>
-                      </form>
+                      </form> */}
 
 
                 </div>
 
                  <div class="justify-content-center">
+                  <br/>
                        <button class="btn btn-success" onClick={submitHandler}>save</button>
                  </div>
             </div>
