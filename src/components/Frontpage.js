@@ -55,7 +55,7 @@ const Frontpage = () => {
       <div class="tag text-center">
 
       
-           <h3>How to save your Data</h3>
+          <h3><strong>How to save your Data</strong> </h3>
       </div>
       <br/><br/>
 
@@ -81,7 +81,7 @@ const Frontpage = () => {
     
   </div>
 </div>
-  <p> ------</p>
+  
           </div>
           <div class="col-md-4 shadow" >
           <div class="card co1" >
